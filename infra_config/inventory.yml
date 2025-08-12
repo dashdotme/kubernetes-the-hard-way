@@ -1,0 +1,10 @@
+all:
+  hosts:
+    jumpbox:
+      ansible_host: "170.64.203.78"
+      ansible_user: root
+      ansible_ssh_private_key_file: ~/.ssh/id_rsa
+  vars:
+    server_ip: "209.38.28.118"
+    node0_ip: "170.64.215.80"
+    node1_ip: "170.64.237.47"
