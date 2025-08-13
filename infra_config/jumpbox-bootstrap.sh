@@ -2,7 +2,7 @@
 set -euo pipefail
 
 echo "Installing packages"
-DEPS=(wget curl vim-gtk3 xclip openssl git tmux)
+DEPS=(wget curl vim openssl git)
 if ! dpkg -s "${DEPS[@]}" >/dev/null 2>&1; then
     apt update
     apt install -y "${DEPS[@]}"
@@ -44,6 +44,3 @@ fi
 echo "Verifying"
 kubectl version --client || true
 vim --version | grep clipboard || true
-
-echo "Done. SSH with: ssh root@jumpbox"
-echo "In Vim, use \"+y to copy text to your local clipboard via OSC 52."
