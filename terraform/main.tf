@@ -1,6 +1,6 @@
 # initial setup only
 data "digitalocean_ssh_key" "local" {
-  name = "xps"
+  name = "my_local"
 }
 
 # create on jump after setup
@@ -45,20 +45,20 @@ resource "digitalocean_droplet" "node" {
 output "machine_ips" {
   value = {
     jumpbox = {
-      public_ip   = digitalocean_droplet.jumpbox.ipv4_address
-      private_ip  = digitalocean_droplet.jumpbox.ipv4_address_private
+      public_ip  = digitalocean_droplet.jumpbox.ipv4_address
+      private_ip = digitalocean_droplet.jumpbox.ipv4_address_private
     }
     server = {
-      public_ip   = digitalocean_droplet.server.ipv4_address
-      private_ip  = digitalocean_droplet.server.ipv4_address_private
+      public_ip  = digitalocean_droplet.server.ipv4_address
+      private_ip = digitalocean_droplet.server.ipv4_address_private
     }
     node-0 = {
-      public_ip   = digitalocean_droplet.node[0].ipv4_address
-      private_ip  = digitalocean_droplet.node[0].ipv4_address_private
+      public_ip  = digitalocean_droplet.node[0].ipv4_address
+      private_ip = digitalocean_droplet.node[0].ipv4_address_private
     }
     node-1 = {
-      public_ip   = digitalocean_droplet.node[1].ipv4_address
-      private_ip  = digitalocean_droplet.node[1].ipv4_address_private
+      public_ip  = digitalocean_droplet.node[1].ipv4_address
+      private_ip = digitalocean_droplet.node[1].ipv4_address_private
     }
   }
 }
